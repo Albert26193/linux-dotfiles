@@ -91,7 +91,7 @@ function link_single_file {
 		utils_print_green_line "     path: "${target_file}""
 		utils_print_white_line "--------------------------------------"
 		if utils_yn_prompt "Do you want to overwrite it?"; then
-			local date_suffix="$(date date +%Y-%m-%d-%s)"
+			local date_suffix="$(date +%Y-%m-%d-%s)"
 			mv "${target_file}" "${target_file}.backup.${date_suffix}"
 			utils_print_white "backup origin file to "
 			utils_print_green_line "${target_file}.backup.${date_suffix}"
