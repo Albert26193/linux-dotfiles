@@ -10,6 +10,9 @@ ZSH_COMPDUMP="${ZSH}/cache/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 
 source $ZSH/oh-my-zsh.sh
 
+# --------------------- cpp -----------------------
+source /opt/rh/gcc-toolset-10/enable
+
 # --------------------- zsh -----------------------
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
 
@@ -19,12 +22,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LS_COLORS=${LS_COLORS}:'di=01;35'
 
-#  --------------------- alias --------------------
-alias "nv"="nvim"
-alias "tm"="tmux"
-alias "ll"="ls -l"
-alias "la"="ls -al"
-
 #------------------- fuzzy-shell -------------------
 source "${HOME}/.fuzzy_shell/scripts/export.sh"
 alias "fs"="fuzzy --search"
@@ -32,3 +29,36 @@ alias "fj"="fuzzy --jump"
 alias "fe"="fuzzy --edit"
 alias "hh"="fuzzy --history"
 
+#-------------------- starship ---------------------
+eval "$(starship init zsh)"
+
+#---------------------- conda -----------------------
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/root/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/root/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/root/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/root/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+#---------------------- nvm -----------------------
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#---------------------- tdsql -----------------------
+source "/data/remote-projects/tdsql-scripts/export.sh"
+
+#  --------------------- alias --------------------
+alias "nv"="nvim"
+alias "tm"="tmux"
+alias "ll"="ls -l"
+alias "la"="ls -al"
+alias "tds_source"="source /data/remote-projects/tdsql-scripts/export.sh"

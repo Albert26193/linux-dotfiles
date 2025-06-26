@@ -194,6 +194,7 @@ format = '\[[$symbol$workspace]($style)\]'
 format = '\[[$time]($style)\]'
 
 [username]
+style_root = 'cyan'
 format = '[│](bold green) [$user]($style) '
 
 [vagrant]
