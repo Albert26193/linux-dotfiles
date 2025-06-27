@@ -53,6 +53,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+#----------------------- bin -----------------------
+export PATH="$PATH:/root/.remote-bin"
+
 #---------------------- tdsql -----------------------
 source "/data/remote-projects/tdsql-scripts/export.sh"
 
@@ -61,4 +64,7 @@ alias "nv"="nvim"
 alias "tm"="tmux"
 alias "ll"="ls -l"
 alias "la"="ls -al"
-alias "tds_source"="source /data/remote-projects/tdsql-scripts/export.sh"
+alias "lg"="lazygit"
+alias "td_source"="source /data/remote-projects/tdsql-scripts/export.sh"
+alias "td_sql"="mysql --comments --host 127.0.0.1 -u root -ptdsql2.5 --port "
+alias "td_mycli"="mycli --host 127.0.0.1 -u root -ptdsql2.5 --port"
