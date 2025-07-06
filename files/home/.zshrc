@@ -8,10 +8,13 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions docker zsh-vi-mode)
 HISTFILE="${ZSH}/cache/.zsh_history"
 ZSH_COMPDUMP="${ZSH}/cache/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 
+DISABLE_MAGIC_FUNCTIONS=true
+
 source $ZSH/oh-my-zsh.sh
 
 # --------------------- cpp -----------------------
-source /opt/rh/gcc-toolset-10/enable
+source /opt/rh/gcc-toolset-14/enable
+ulimit -c unlimited
 
 # --------------------- zsh -----------------------
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
@@ -54,17 +57,27 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #----------------------- bin -----------------------
-export PATH="$PATH:/root/.remote-bin"
+export PATH="$PATH:/data/bin"
 
 #---------------------- tdsql -----------------------
-source "/data/remote-projects/tdsql-scripts/export.sh"
+source "/data/workspace/tdsql-dev-utils/script/export.sh"
 
-#  --------------------- alias --------------------
+#-------------------- alias --------------------
 alias "nv"="nvim"
 alias "tm"="tmux"
 alias "ll"="ls -l"
 alias "la"="ls -al"
 alias "lg"="lazygit"
-alias "td_source"="source /data/remote-projects/tdsql-scripts/export.sh"
-alias "td_sql"="mysql --comments --host 127.0.0.1 -u root -ptdsql2.5 --port "
-alias "td_mycli"="mycli --host 127.0.0.1 -u root -ptdsql2.5 --port"
+alias "td.source"="source /data/workspace/tdsql-dev-utils/script/export.sh"
+alias "td.sql"="mysql --comments --host 127.0.0.1 -u root -ptdsql2.5 --port "
+alias "td.cli"="mycli --host 127.0.0.1 -u root -ptdsql2.5 --port"
+alias "view"="nvim -R"
+
+# -------------------- ccache --------------------
+#ccache
+export USE_CCACHE=1
+export CCACHE_SLOPPINESS=file_macro,include_file_mtime,time_macros
+export CCACHE_UMASK=002
+export CCACHE_DIR="/data/.ccache"
+export CC="ccache gcc"
+export CXX="ccache g++"

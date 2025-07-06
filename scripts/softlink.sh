@@ -121,3 +121,5 @@ function link_single_file {
 
 # call main function
 create_config_softlinks
+
+# ls -al | grep ".backup"  | awk '{print $NF}' | xargs -I {} rm -r {}
