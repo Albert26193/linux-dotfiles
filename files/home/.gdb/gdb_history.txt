@@ -17,3 +17,6 @@ q
 show pretty-printer
 info pretty-printer
 q
+-q
+ls -al
+q

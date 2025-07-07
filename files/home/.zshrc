@@ -58,6 +58,7 @@ export NVM_DIR="$HOME/.nvm"
 
 #----------------------- bin -----------------------
 export PATH="$PATH:/data/bin"
+export PATH="$PATH:$(go env GOPATH)/bin"
 
 #---------------------- tdsql -----------------------
 source "/data/workspace/tdsql-dev-utils/script/export.sh"
@@ -72,6 +73,7 @@ alias "td.source"="source /data/workspace/tdsql-dev-utils/script/export.sh"
 alias "td.sql"="mysql --comments --host 127.0.0.1 -u root -ptdsql2.5 --port "
 alias "td.cli"="mycli --host 127.0.0.1 -u root -ptdsql2.5 --port"
 alias "view"="nvim -R"
+alias "tca"="tmux capture-pane -S - && tmux save-buffer ~/.tmux-log/$(date +"%Y%m%d-%H:%M").tmux.log"
 
 # -------------------- ccache --------------------
 #ccache
