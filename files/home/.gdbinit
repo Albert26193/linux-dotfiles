@@ -4,10 +4,10 @@ set print array-indexes on
 set print object on
 
 set history save on
-set history filename /root/.gdb/gdb_history.txt
+set history filename /root/.gdb/gdb.history.log
 set trace-commands on
 
-set logging file /root/.gdb/gdb.txt
+set logging file /root/.gdb/gdb.log
 set logging on
 set auto-load safe-path /root/.gdb
 set index-cache on
