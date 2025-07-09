@@ -212,20 +212,17 @@
 # [directory]
 # truncation_length = 100
 # format = "[$path]($style)[$lock_symbol]($lock_style)"
-# 
+#
 # [container]
 # disabled = true
-
+#
 ##########################################################
-
-# [conda]
-# format = '[$symbol$environment](dimmed green) '
 
 [hostname]
 ssh_only = false
 disabled = false
 style="cyan"
-ssh_symbol='🚀'
+ssh_symbol='🚀 '
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
@@ -374,9 +371,9 @@ format = '\[[$symbol$stack]($style)\]'
 [purescript]
 format = '\[[$symbol($version)]($style)\]'
 
-# [python]
-# format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
-#
+[python]
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+
 [raku]
 format = '\[[$symbol($version-$vm_version)]($style)\]'
 
@@ -426,3 +423,7 @@ disabled = true
 style_root = 'bold green'
 format = '(bold green) [$user]($style) '
 
+[conda]
+format = '\[[🐍 $environment](dimmed green)\]'
+ignore_base = false
+# conda config --set changeps1 False
