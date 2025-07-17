@@ -13,7 +13,7 @@ DISABLE_MAGIC_FUNCTIONS=true
 source $ZSH/oh-my-zsh.sh
 
 # --------------------- cpp -----------------------
-source /opt/rh/gcc-toolset-14/enable
+# source /opt/rh/gcc-toolset-14/enable
 ulimit -c unlimited
 
 # --------------------- zsh -----------------------
@@ -33,7 +33,7 @@ alias "fe"="fuzzy --edit"
 alias "hh"="fuzzy --history"
 
 #-------------------- starship ---------------------
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 #---------------------- conda -----------------------
 # >>> conda initialize >>>
@@ -83,3 +83,6 @@ export CCACHE_UMASK=002
 export CCACHE_DIR="/data/.ccache"
 export CC="ccache gcc"
 export CXX="ccache g++"
+
+# -------------------- env --------------------
+source .zsh.env
